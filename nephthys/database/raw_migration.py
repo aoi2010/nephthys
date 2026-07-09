@@ -39,6 +39,7 @@ def raw_migration(
         sys.stderr.write(sql)
         sys.stderr.write("\n" + "=" * 80 + "\n")
         sys.stderr.flush()
+        raise Exception(sql)
         await RawTable.raw(sql)
 
     manager.add_raw(run)
