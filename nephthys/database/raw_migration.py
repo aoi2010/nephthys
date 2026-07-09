@@ -1,6 +1,5 @@
 from piccolo.apps.migrations.auto.migration_manager import MigrationManager
 from piccolo.table import Table
-import sys
 
 
 # Dummy table we use to execute raw SQL with
@@ -9,15 +8,25 @@ class RawTable(Table):
 
 
 def postgresql_code_block(sql: str) -> str:
-    """Wraps the given SQL in a DO block, to allow multiple SQL statements
-    to be executed with one call to `RawTable.raw()`"""
-    return f"""
-    DO $nephthys_migration_block$ 
-        BEGIN
-        {sql}
-        END
-    $nephthys_migration_block$;
     """
+    Wrap the given SQL in a PostgreSQL DO block, allowing multiple SQL
+    statements to be executed in a single RawTable.raw() call.
+    """
+
+    sql = sql.strip()
+
+    # Ensure the SQL ends with a semicolon
+    if sql and not sql.endswith(";"):
+        sql += ";"
+
+    return f"""
+DO $nephthys_migration_block$
+BEGIN
+{sql}
+END;
+$nephthys_migration_block$
+LANGUAGE plpgsql;
+"""
 
 
 def raw_migration(
@@ -34,24 +43,14 @@ def raw_migration(
     )
 
     async def run():
-        sql = postgresql_code_block(forwards)
-        sys.stderr.write("\n" + "=" * 80 + "\n")
-        sys.stderr.write(sql)
-        sys.stderr.write("\n" + "=" * 80 + "\n")
-        sys.stderr.flush()
-        raise Exception(sql)
-        await RawTable.raw(sql)
+        await RawTable.raw(postgresql_code_block(forwards))
 
     manager.add_raw(run)
 
     if backwards:
 
         async def run_backwards():
-            sql = postgresql_code_block(backwards)
-            print("=" * 80)
-            print(sql)
-            print("=" * 80)
-            await RawTable.raw(sql)
+            await RawTable.raw(postgresql_code_block(backwards))
 
         manager.add_raw_backwards(run_backwards)
 
