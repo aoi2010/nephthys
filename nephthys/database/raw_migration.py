@@ -1,5 +1,6 @@
 from piccolo.apps.migrations.auto.migration_manager import MigrationManager
 from piccolo.table import Table
+import sys
 
 
 # Dummy table we use to execute raw SQL with
@@ -34,9 +35,10 @@ def raw_migration(
 
     async def run():
         sql = postgresql_code_block(forwards)
-        print("=" * 80)
-        print(sql)
-        print("=" * 80)
+        sys.stderr.write("\n" + "=" * 80 + "\n")
+        sys.stderr.write(sql)
+        sys.stderr.write("\n" + "=" * 80 + "\n")
+        sys.stderr.flush()
         await RawTable.raw(sql)
 
     manager.add_raw(run)
