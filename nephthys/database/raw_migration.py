@@ -8,25 +8,15 @@ class RawTable(Table):
 
 
 def postgresql_code_block(sql: str) -> str:
-    """
-    Wrap the given SQL in a PostgreSQL DO block, allowing multiple SQL
-    statements to be executed in a single RawTable.raw() call.
-    """
-
-    sql = sql.strip()
-
-    # Ensure the SQL ends with a semicolon
-    if sql and not sql.endswith(";"):
-        sql += ";"
-
+    """Wraps the given SQL in a DO block, to allow multiple SQL statements
+    to be executed with one call to `RawTable.raw()`"""
     return f"""
-DO $nephthys_migration_block$
-BEGIN
-{sql}
-END;
-$nephthys_migration_block$
-LANGUAGE plpgsql;
-"""
+    DO $nephthys_migration_block$ 
+        BEGIN
+        {sql}
+        END;
+    $nephthys_migration_block$;
+    """
 
 
 def raw_migration(
@@ -37,9 +27,7 @@ def raw_migration(
     backwards: str | None = None,
 ):
     manager = MigrationManager(
-        migration_id=migration_id,
-        app_name=app_name,
-        description=description,
+        migration_id=migration_id, app_name=app_name, description=description
     )
 
     async def run():
