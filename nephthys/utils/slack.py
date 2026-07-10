@@ -41,7 +41,12 @@ from nephthys.utils.performance import perf_timer
 from nephthys.views.home import AppHomeView
 
 app = AsyncApp(token=env.slack_bot_token, signing_secret=env.slack_signing_secret)
-
+@app.use
+async def debug(logger, body, next):
+    logger.warning("=" * 50)
+    logger.warning(body)
+    logger.warning("=" * 50)
+    await next()
 
 @app.event("message")
 async def handle_message(event: Dict[str, Any], client: AsyncWebClient):
