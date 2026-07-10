@@ -46,6 +46,9 @@ app = AsyncApp(token=env.slack_bot_token, signing_secret=env.slack_signing_secre
 @app.event("message")
 async def handle_message(event: Dict[str, Any], client: AsyncWebClient):
     logging.debug(f"Message event: {event}")
+    logging.warning(f"Received event: {event}")
+    logging.warning(f"thread_ts={event.get('thread_ts')}")
+    logging.warning(f"ts={event.get('ts')}")
     is_message_deletion = (
         event.get("subtype") == "message_changed"
         and event["message"].get("subtype") == "tombstone"
