@@ -337,6 +337,7 @@ async def on_message(event: Dict[str, Any], client: AsyncWebClient):
     """
     Handle incoming messages in Slack.
     """
+    logging.warning("Creating ticket...")
     if "subtype" in event and event["subtype"] not in ALLOWED_SUBTYPES:
         return
     if "bot_id" in event:
