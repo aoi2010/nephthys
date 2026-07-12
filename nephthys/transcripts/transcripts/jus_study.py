@@ -1,7 +1,7 @@
 from nephthys.transcripts.transcript import Transcript
 
 
-class Jus_study(Transcript):
+class JusStudy(Transcript):
     """Transcript for Jus' Study YSWS"""
 
     program_name: str = "Jus' Study"
