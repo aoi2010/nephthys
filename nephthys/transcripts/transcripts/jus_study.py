@@ -8,7 +8,7 @@ class JusStudy(Transcript):
     program_owner: str = "U0A5NKH93BJ"
 
     help_channel: str = "C0AQUT708J1"  # #jus-study-help
-    ticket_channel: str = "C0B22UW9FLG"
+    ticket_channel: str = "C0BGP2C2UBX"
     team_channel: str = "C0BGS9RLPLJ"
 
     faq_link: str = "https://hackclub.enterprise.slack.com/docs/T0266FRGM/F0APA452CSK"
