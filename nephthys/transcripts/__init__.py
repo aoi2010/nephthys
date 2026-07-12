@@ -12,6 +12,7 @@ from nephthys.transcripts.transcripts.hctg import Hctg
 from nephthys.transcripts.transcripts.help import Help
 from nephthys.transcripts.transcripts.identity import Identity
 from nephthys.transcripts.transcripts.jumpstart import Jumpstart
+from nephthys.transcripts.transcripts.jus_study import JusStudy
 from nephthys.transcripts.transcripts.lynx import Lynx
 from nephthys.transcripts.transcripts.midnight import Midnight
 from nephthys.transcripts.transcripts.nest import Nest
@@ -40,4 +41,5 @@ transcripts: List[Type[Transcript]] = [
     Stardance,
     Alchemize,
     Outpost,
+    JusStudy,
 ]
