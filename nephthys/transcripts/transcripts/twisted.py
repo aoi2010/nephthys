@@ -9,7 +9,7 @@ class Twisted(Transcript):
 
     help_channel: str = "C0BKH9PQLPP"  # #Twisted-help
     ticket_channel: str = "C0BKG9RBZRR"
-    team_channel: str = "C0BLGLQNVKJ"
+    team_channel: str = "C0AD3HRV4F8"
 
     faq_link: str = "https://hackclub.enterprise.slack.com/docs/T0266FRGM/F0ASVGKKBRD"
     first_ticket_create: str = f"""
