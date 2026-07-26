@@ -130,7 +130,7 @@ class Transcript(BaseModel):
     )
 
     stale_tickets_macro: str = Field(
-        default="Hey, (user)!It seems like this ticket has been inactive for some days so I'll be closing it.\nIf your question wasn't answered, please feel free to make a new one. Thanks!"",
+        default="Hey, (user)!It seems like this ticket has been inactive for some days so I'll be closing it.\nIf your question wasn't answered, please feel free to make a new one. Thanks!",
         description="Message for closing stale tickets",
     )
 
