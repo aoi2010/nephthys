@@ -130,8 +130,8 @@ class Transcript(BaseModel):
     )
 
     stale_tickets_macro: str = Field(
-        default="Hey, (user)!\nAs you didn't respond, this thread will be marked as resolved.\n\nPlease make a new thread in this channel if you have more questions.",
-        description="Message for closing stale tickets and resolving it(better than autoclose)",
+        default="Hey, (user)!It seems like this ticket has been inactive for some days so I'll be closing it.\nIf your question wasn't answered, please feel free to make a new one. Thanks!"",
+        description="Message for closing stale tickets",
     )
 
     not_allowed_channel: str = Field(
