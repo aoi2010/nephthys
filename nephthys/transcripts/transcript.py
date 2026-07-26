@@ -129,7 +129,7 @@ class Transcript(BaseModel):
         description="Message for credits ran out",
     )
 
-    stale_tickets_macro: str | None = Field(
+    stale_tickets_macro: str = Field(
         default="Hey, (user)!\nAs you didn't respond, this thread will be marked as resolved.\n\nPlease make a new thread in this channel if you have more questions.",
         description="Message for closing stale tickets and resolving it(better than autoclose)",
     )
