@@ -1,24 +1,24 @@
 from nephthys.transcripts.transcript import Transcript
 
 
-class Twisted(Transcript):
-    """Transcript for Twisted YSWS"""
+class Kintsugi(Transcript):
+    """Transcript for Kintsugi YSWS"""
 
-    program_name: str = "Twisted"
+    program_name: str = "Kintsugi"
     program_owner: str = "U0A5NKH93BJ"  # @aoishik
 
-    help_channel: str = "C0BKH9PQLPP"  # #Twisted-help
-    ticket_channel: str = "C0BKG9RBZRR"
-    team_channel: str = "C0BKG9RBZRR"
+    help_channel: str = "C0B387LS21G"  # #Kintsugi-help
+    ticket_channel: str = "C0BNKUXU951"
+    team_channel: str = "C0BKU2F2H4N"
 
-    faq_link: str = "https://hackclub.enterprise.slack.com/docs/T0266FRGM/F0BKPDUDTGV"
+    faq_link: str = "https://hackclub.enterprise.slack.com/docs/T0266FRGM/F0B35TQTS76"
     first_ticket_create: str = f"""
-Heya (user)! Welcome to the Twisted help channel! Someone from our team will be here to help you out soon.
+Heya (user)! Welcome to the Kintsugi help channel! Someone from our team will be here to help you out soon.
 If you haven't already, have a read through <{faq_link}|*the FAQ*> – it will likely contain the answer you're looking for!
 If your question has been answered, please hit the button below to mark it as resolved!
     """
     ticket_create: str = f"""
-Hi (user), welcome back to the Twisted help channel! Someone should be along to help you soon.
+Hi (user), welcome back to the Kintsugi help channel! Someone should be along to help you soon.
 As a reminder, you can take a look at <{faq_link}|*the FAQ*> while you wait – it might contain the answer to your question! :D
 """
     resolve_ticket_button: str = "Mark As Resolved"
@@ -28,7 +28,7 @@ As a reminder, you can take a look at <{faq_link}|*the FAQ*> while you wait – 
     faq_macro: str = f"""
 Hi (user), this question is already answered in our FAQ!
 
-Here's the link again: <{faq_link}|*Twisted FAQ*>.
+Here's the link again: <{faq_link}|*Kintsugi FAQ*>.
 
 _I've marked this question as resolved, so please start a new thread if you need more help_
     """
