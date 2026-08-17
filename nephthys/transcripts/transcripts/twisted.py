@@ -7,9 +7,9 @@ class Twisted(Transcript):
     program_name: str = "Twisted"
     program_owner: str = "U0A5NKH93BJ"  # @aoishik
 
-    help_channel: str = "C0BKH9PQLPP"  # #Twisted-help
+    help_channel: str = "C0BQM80CQQ6"  # #Twisted-help
     ticket_channel: str = "C0BKG9RBZRR"
-    team_channel: str = "C0BKG9RBZRR"
+    team_channel: str = "C0BKH9PQLPP"
 
     faq_link: str = "https://hackclub.enterprise.slack.com/docs/T0266FRGM/F0BKPDUDTGV"
     first_ticket_create: str = f"""
